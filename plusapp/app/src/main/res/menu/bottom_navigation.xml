@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/drinksFragment"
+        android:icon="@drawable/drinks"
+        android:title="Drinks" />
+
+    <item
+        android:id="@+id/eatsFragment"
+        android:title="Food"
+        android:icon="@drawable/eat" />
+
+    <item
+        android:id="@+id/walletFragment"
+        android:icon="@drawable/ic_baseline_account_balance_wallet_24"
+        android:title="Wallet" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="Settings"
+        android:icon="@drawable/settings" />
+
+</menu>

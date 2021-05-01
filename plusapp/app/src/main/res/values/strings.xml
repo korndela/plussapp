@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">plusapp</string>
+    <string name="user_name_is_not_valid">Username is not valid</string>
+    <string name="password_is_not_valid">Password must be more than 5 char</string>
+    <string name="name_is_not_valid">Name must be more than 2 char</string>
+    <string name="username_or_password_isNotValid">Username or Password is not valid</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="your_username">Your Username</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="buybuy">Buy</string>
+    <string name="email">email</string>
+    <string name="Password">Password</string>
+    <string name="buywithpoint">Use Bonus</string>
+    <string name="your_bonus_point">Bonus Amount</string>
+    <string name="ok">Okey</string>
+    <string name="HELLO">Hello!!!</string>
+    <string name="UserName" />
+    <string name="userName">userName</string>
+    <string name="Name">Name</string>
+    <string name="image">Image</string>
+    <string name="Email">Email</string>
+    <string name="LogOut">Logout</string>
+    <string name="changeForName">Username</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="WalletTitle">Your Wallet</string>
+    <string name="Your_Point">Your points:</string>
+</resources>

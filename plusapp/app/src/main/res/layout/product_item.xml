@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="addPointClickListener"
+            type="com.example.plusapp.ui.ProductClickListener" />
+
+        <variable
+            name="productItem"
+            type="com.example.plusapp.model.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="#CDD4DA">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-black"
+            android:maxLines="2"
+            android:minEms="10"
+            android:text="@{productItem.productName}"
+            android:textAlignment="viewStart"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/buyButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Americano" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            textWithDolarSign="@{productItem.productPrice}"
+            android:textColor="#F60808"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.333"
+            tools:text="15$" />
+
+        <TextView
+            android:id="@+id/buyButton"
+            textWithPoint="@{productItem.productBonus}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="50dp"
+            android:onClick="@{()->addPointClickListener.addPoint(productItem)}"
+            android:textColor="#1E88E5"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BuyBuyBuy" />
+
+        <TextView
+            android:id="@+id/textView5"
+            textWithBonusPoint="@{productItem.productPoint}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->addPointClickListener.removePoint(productItem)}"
+            android:textColor="#7CB342"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/buyButton"
+            app:layout_constraintStart_toStartOf="@+id/buyButton"
+            app:layout_constraintTop_toBottomOf="@+id/buyButton"
+            tools:text="Buy with Point" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            app:imgUrl="@{productItem.productImage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.plusapp.viewModel.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C8E2F8"
+        tools:context=".ui.register.RegisterFragment">
+
+
+        <EditText
+            android:id="@+id/registerEditTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/your_username"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/registerEditTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/e_mail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="@+id/registerEditTextTextPersonName"
+            app:layout_constraintStart_toStartOf="@+id/registerEditTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/registerEditTextTextPersonName" />
+
+        <EditText
+            android:id="@+id/registerEditTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="@+id/registerEditTextEmail"
+            app:layout_constraintStart_toStartOf="@+id/registerEditTextEmail"
+            app:layout_constraintTop_toBottomOf="@+id/registerEditTextEmail" />
+
+
+        <Button
+            android:id="@+id/registerFlowButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginTop="44dp"
+            android:onClick="@{()->viewModel.registerUser(viewModel.registerForm.useremail,viewModel.registerForm.password,viewModel.registerForm.username)}"
+            android:text="Register"
+            app:layout_constraintEnd_toEndOf="@+id/registerEditTextPassword"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="@+id/registerEditTextPassword"
+            app:layout_constraintTop_toBottomOf="@+id/registerEditTextPassword"
+            tools:ignore="MissingConstraints" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            registerStatus="@{viewModel.registerStatus}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.538" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

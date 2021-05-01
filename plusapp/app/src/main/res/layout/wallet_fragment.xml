@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.plusapp.viewModel.WalletViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ContrainlayWallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C8E2F8"
+        tools:context=".ui.wallet.WalletFragment">
+
+        <TextView
+            android:id="@+id/currentPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="68dp"
+            android:text="@{String.valueOf(viewModel.userResult.success.userPoint)}"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Wallet_text"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            tools:text="234234" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/WalletTitle"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="189dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/walleticon3" />
+
+        <TextView
+            android:id="@+id/Wallet_text"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="72dp"
+            android:text="@string/Your_Point"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

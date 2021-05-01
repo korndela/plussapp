@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="settingsViewModel"
+            type="com.example.plusapp.viewModel.SettingsViewModel" />
+
+        <variable
+            name="settingsForm"
+            type="com.example.plusapp.model.UserSettings" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C8E2F8"
+        tools:context=".ui.settings.SettingsFragment">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/HELLO"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/userName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:hint="@string/userName"
+            android:text="@{settingsViewModel.currentUserSettings.userDisplayName}"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/nameTw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/Email"
+            app:layout_constraintEnd_toEndOf="@+id/nameTw"
+            app:layout_constraintStart_toStartOf="@+id/nameTw"
+            app:layout_constraintTop_toBottomOf="@+id/nameTw" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="65dp"
+            android:layout_height="30dp"
+            android:text="@string/Password"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonPassword"
+            app:layout_constraintEnd_toEndOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintVertical_bias="0.861" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="name"
+            android:ems="10"
+            android:hint="@string/changeForName"
+            android:inputType="textPersonName"
+            android:text="@{settingsViewModel.currentUserSettings.userDisplayName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintStart_toEndOf="@+id/nameTw"
+            app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/Email"
+            android:inputType="textPersonName"
+            android:text="@{settingsViewModel.currentUserSettings.userEmail}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/Password"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonEmail"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonEmail"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonEmail"
+            app:layout_constraintVertical_bias="0.035" />
+
+        <Button
+            android:id="@+id/loguOut"
+            android:layout_width="104dp"
+            android:layout_height="51dp"
+            android:onClick="@{()->settingsViewModel.signedOut()}"
+            android:text="@string/LogOut"
+            app:layout_constraintBottom_toBottomOf="@+id/saveChanges"
+            app:layout_constraintEnd_toStartOf="@+id/saveChanges"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/saveChanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:onClick="@{()->settingsViewModel.updateUserInformation(settingsForm)}"
+            android:text="@string/save_changes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/loguOut"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonPassword" />
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            registerStatus="@{settingsViewModel.updateStatus}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.329" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
